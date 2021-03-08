@@ -1,1 +1,6 @@
+# vim
 .*.swp
+*.swo
+
+# documentation
+README.html
