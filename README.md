@@ -36,10 +36,10 @@ $ python -m pip install django-model-decoupler
 
     ~~~python
     from django.db import models
-    import model_decoupler
+    import decoupler
     from pure_python_module import PurePythonClass
 
-    class MyModel(model_decoupler.Model, adaptee=PurePythonClass):
+    class MyModel(decoupler.Model, adaptee=PurePythonClass):
 	    attr1 = models.Field(...)
 	    ...
 

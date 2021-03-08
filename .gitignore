@@ -4,3 +4,7 @@
 
 # documentation
 README.html
+
+# pip
+dist
+*.egg-info
