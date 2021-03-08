@@ -28,15 +28,15 @@ $ python -m pip install django-model-decoupler
     ~~~python
     INSTALLED_APPS = [
         ...
-        'model_decoupler',
+        'decoupler',
     ]
     ~~~
 
-2. Change your models to inherit from `model_decoupler.Model`:
+2. Change your models to inherit from `decoupler.Model`:
 
     ~~~python
     from django.db import models
-    import decoupler
+    import decoupler.models as decoupler
     from pure_python_module import PurePythonClass
 
     class MyModel(decoupler.Model, adaptee=PurePythonClass):
