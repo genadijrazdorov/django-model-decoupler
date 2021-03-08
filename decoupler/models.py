@@ -3,10 +3,16 @@ from django.db import models
 
 class ModelBase(models.base.ModelBase):
     def __new__(cls, name, bases, attrs, **kwargs):
-        adaptee = kwargs.pop('adaptee')
+        try:
+            adaptee = kwargs.pop('adaptee')
+        except KeyError:
+            adaptee = None
 
         if len(bases) == 1 and bases[0] == models.Model:
             return super().__new__(cls, name, bases, attrs, **kwargs)
+
+        if adaptee is None:
+            raise ValueError(f"Class '{name}' missing 'adaptee'")
 
         attrs['_obj'] = None
         attrs['__init__'] = cls.init(adaptee)
